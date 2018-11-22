@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class FPController : MonoBehaviour {
 
     public float speed = 5.0f;
     public int Points = 0;
-    public int Lifes = 5;
+    public const int AddedLifes = 5;
+    public int Lifes = AddedLifes;
     public Text LifesText;
     public Text PointsText;
     public Text GameOverText;
@@ -104,6 +106,8 @@ public class FPController : MonoBehaviour {
             Scene.GetComponent<SpawnGarbage>().SpawnRate += 0.2f;
             int level = (Points / 10) + 1;
             GameOverText.text = "LEVEL " + level.ToString();
+            Lifes += AddedLifes;
+            SetLifesText();
             timer.Start();
         }
     }
@@ -111,5 +115,10 @@ public class FPController : MonoBehaviour {
     private static Quaternion GyroToUnity(Quaternion q)
     {
         return new Quaternion(q.x, q.y, -q.z, -q.w);
+    }
+
+    public void OnApplicationPause(bool pause)
+    {
+        SceneManager.LoadScene(0);
     }
 }

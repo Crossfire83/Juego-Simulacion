@@ -169,6 +169,7 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
     <Compile Include="Assets\Scripts\FPController.cs" />
+    <Compile Include="Assets\Scripts\LoadNextScene.cs" />
     <Compile Include="Assets\Scripts\ProjectileMove.cs" />
     <Compile Include="Assets\Scripts\SpawnGarbage.cs" />
     <Compile Include="Assets\Scripts\SpawnProjectiles.cs" />
